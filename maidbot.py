@@ -22,5 +22,17 @@ async def on_ready():
         members = '\n - '.join([member.name for member in guild.members])
         print(f'Guild Members:\n - {members}')
 
+    # guild = discord.utils.get(client.guilds, name=GUILD)
+
+
+@client.event
+async def on_message(message):
+    if message.author.id == client.user:
+        return
+
+    if message.content == "lucas":
+        response = "standard is to use spaces <:pepega:538273570753871873>"
+        await message.channel.send(response)
+
 
 client.run(BOT_TOKEN)
